@@ -5,7 +5,7 @@ import { IoMenu } from "react-icons/io5";
 const Navbar = () => {
     return (
         <header className="body-font bg-[#002663] text-white">
-            <div className="container mx-auto flex flex-wrap p-5 flex-row items-center">
+            <div className="container mx-auto flex flex-wrap p-2 flex-row items-center">
                 <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                     <Image src='/metalogo.png' alt='metalogic company logo' width={50} height={50} />
                     <span className="ml-3 text-3xl text-white">MetaLogic</span>
@@ -17,7 +17,7 @@ const Navbar = () => {
                     <a className="mr-5">Blogs</a>
                     <a className="mr-5">About Us</a>
                 </nav>
-                <button className="hidden lg:inline-flex items-center bg-[#E53B3A] border-0 py-1 px-3 focus:outline-nonerounded text-base mt-4 md:mt-0">
+                <button className="hidden lg:inline-flex items-center bg-[#E53B3A] border-0 py-1 px-3 focus:outline-nonerounded rounded-lg text-base mt-4 md:mt-0">
                     Get In Touch
                 </button>
 
@@ -34,7 +34,7 @@ const Navbar = () => {
                         <a className="mr-5">Blogs</a>
                         <a className="mr-5">About Us</a>
                     </nav>
-                        <button className="bg-[#002663] border-0 py-1 px-3 focus:outline-nonerounded text-base mt-4 md:mt-0">
+                        <button className="bg-[#002663] rounded-lg border-0 py-1 px-3 focus:outline-nonerounded text-base mt-4 md:mt-0">
                             Get In Touch
                         </button>
                     </div>
