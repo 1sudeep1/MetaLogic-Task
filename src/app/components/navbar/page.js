@@ -1,18 +1,19 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 import { IoMenu } from "react-icons/io5";
 const Navbar = () => {
     return (
         <header className="body-font bg-[#002663] text-white">
             <div className="container mx-auto flex flex-wrap p-2 flex-row items-center">
-                <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <Link href='/' className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                     <Image src='/metalogo.png' alt='metalogic company logo' width={50} height={50} />
                     <span className="ml-3 text-3xl text-white">MetaLogic</span>
-                </a>
+                </Link>
                 <nav className="hidden ml-auto md:mr-auto lg:flex flex-wrap items-center text-base justify-center">
-                    <a className="mr-5">Home</a>
-                    <a className="mr-5">Services</a>
+                    <Link href='/' className="mr-5 cursor-pointer">Home</Link>
+                    <Link className="mr-5 cursor-pointer" href='/services'>Services</Link>
                     <a className="mr-5">Career</a>
                     <a className="mr-5">Blogs</a>
                     <a className="mr-5">About Us</a>
@@ -29,7 +30,7 @@ const Navbar = () => {
                     <div className=' flex flex-col items-center gap-3'>
                     <nav className=" flex flex-col text-center gap-3 text-[#002663]">
                         <a className="mr-5">Home</a>
-                        <a className="mr-5">Services</a>
+                        <Link className="mr-5 cursor-pointer" href='/services'>Services</Link>
                         <a className="mr-5">Career</a>
                         <a className="mr-5">Blogs</a>
                         <a className="mr-5">About Us</a>
