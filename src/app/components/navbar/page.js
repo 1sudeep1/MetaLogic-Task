@@ -29,7 +29,7 @@ const Navbar = () => {
                 <div id="drawer-example" className="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto duration-700 transition-transform -translate-x-full bg-white w-full dark:bg-gray-800" tabIndex={-1} aria-labelledby="drawer-label">
                     <div className=' flex flex-col items-center gap-3'>
                     <nav className=" flex flex-col text-center gap-3 text-[#002663]">
-                        <a className="mr-5">Home</a>
+                    <Link href='/' className="mr-5 cursor-pointer">Home</Link>
                         <Link className="mr-5 cursor-pointer" href='/services'>Services</Link>
                         <a className="mr-5">Career</a>
                         <a className="mr-5">Blogs</a>

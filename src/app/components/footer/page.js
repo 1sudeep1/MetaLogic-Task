@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
@@ -6,10 +7,10 @@ const Footer = () => {
         <footer className="text-white body-font bg-[#001F50]">
             <div className="container px-5 py-24 mx-auto flex flex-col items-center lg:flex-row justify-between lg:items-start md:gap-10 gap-5">
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-                    <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <Link href='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                         <Image src='/metalogo.png' alt='metalogic company logo' width={50} height={50} />
                         <span className="ml-3 text-3xl text-white">MetaLogic</span>
-                    </a>
+                    </Link>
                     <div className='ms-[60px]'>
                         <p>Software Private Limited</p>
                         <ul className='text-sm mt-5'>
