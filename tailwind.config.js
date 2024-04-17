@@ -18,8 +18,10 @@ module.exports = {
     extend: {
       animation: {
         dot: 'dot 9s linear infinite',
-        line:'line 2s linear'
+        slidedown: 'slideDown 0.3s ease-in-out'
       },
+
+
       keyframes: {
         dot: {
           '0%': {
@@ -31,6 +33,10 @@ module.exports = {
           '100%': {
             transform: 'translateX(-1)',
           },
+        },
+        slideDown: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(0)' },
         },
       },
     },

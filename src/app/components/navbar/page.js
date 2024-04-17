@@ -1,10 +1,11 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMenu } from "react-icons/io5";
 const Navbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isNavbarFixed, setIsNavbarFixed] = useState(false);
     const openDrawer = () => {
         setIsDrawerOpen(true);
     };
@@ -16,8 +17,27 @@ const Navbar = () => {
     const handleActive = (menu) => {
         setActive(menu);
     }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Check scroll position and update isNavbarFixed state
+            if (window.scrollY > 200) { // Change 100 to the scroll position where you want the navbar to be fixed
+                setIsNavbarFixed(true);
+            } else {
+                setIsNavbarFixed(false);
+            }
+        };
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the event listener
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
-        <header className="body-font bg-[#002663] text-white">
+        <header className={`body-font bg-[#002663] text-white ${isNavbarFixed ? 'fixed top-0 left-0 w-full z-50 animate-slidedown' : ''}`}>
             <div className="container mx-auto flex flex-wrap p-2 flex-row items-center">
                 <Link href='/' className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                     <Image src='/metalogo.png' alt='metalogic company logo' width={50} height={50} />
