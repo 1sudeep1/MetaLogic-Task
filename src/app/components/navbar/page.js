@@ -1,9 +1,21 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link';
-import React from 'react'
+import React, { useState } from 'react'
 import { IoMenu } from "react-icons/io5";
 const Navbar = () => {
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const openDrawer = () => {
+        setIsDrawerOpen(true);
+    };
+    const closeDrawer = () => {
+        setIsDrawerOpen(false);
+    };
+
+    const [active, setActive] = useState('Home');
+    const handleActive = (menu) => {
+        setActive(menu);
+    }
     return (
         <header className="body-font bg-[#002663] text-white">
             <div className="container mx-auto flex flex-wrap p-2 flex-row items-center">
@@ -12,29 +24,32 @@ const Navbar = () => {
                     <span className="ml-3 text-3xl text-white">MetaLogic</span>
                 </Link>
                 <nav className="hidden ml-auto md:mr-auto lg:flex flex-wrap items-center text-base justify-center">
-                    <Link href='/' className="mr-5 cursor-pointer">Home</Link>
-                    <Link className="mr-5 cursor-pointer" href='/services'>Services</Link>
-                    <a className="mr-5">Career</a>
-                    <a className="mr-5">Blogs</a>
-                    <a className="mr-5">About Us</a>
+                    <Link href='/' className={`mr-5 relative cursor-pointer ${active === 'Home' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('Home')}>Home
+                    </Link>
+                    <Link href='/services' className={`mr-5 cursor-pointer ${active === 'Services' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('Services')}>Services</Link>
+                    <Link href='#' className={`mr-5 cursor-pointer ${active === 'Career' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('Career')}>Career</Link>
+                    <Link href='#' className={`mr-5 cursor-pointer ${active === 'Blogs' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('Blogs')}>Blogs</Link>
+                    <Link href='#' className={`mr-5 cursor-pointer ${active === 'About Us' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('About Us')}>About Us</Link>
                 </nav>
+
                 <button className="hidden lg:inline-flex items-center bg-[#E53B3A] border-0 py-1 px-3 focus:outline-nonerounded rounded-lg text-base mt-4 md:mt-0">
                     Get In Touch
                 </button>
 
-                <button className='text-3xl ms-auto lg:hidden' type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example" aria-controls="drawer-example">
+                <button onClick={openDrawer} className='text-3xl ms-auto lg:hidden' type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example" aria-controls="drawer-example">
                     <IoMenu className='text-[#E53B3A]' />
                 </button>
 
-                <div id="drawer-example" className="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto duration-700 transition-transform -translate-x-full bg-white w-full dark:bg-gray-800" tabIndex={-1} aria-labelledby="drawer-label">
+                <div id="drawer-example" className={`fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto duration-700 transition-transform ${isDrawerOpen ? '' : '-translate-x-full'} bg-white w-full dark:bg-gray-800`} tabIndex={-1} aria-labelledby="drawer-label">
                     <div className=' flex flex-col items-center gap-3'>
-                    <nav className=" flex flex-col text-center gap-3 text-[#002663]">
-                    <Link href='/' className="mr-5 cursor-pointer">Home</Link>
-                        <Link className="mr-5 cursor-pointer" href='/services'>Services</Link>
-                        <a className="mr-5">Career</a>
-                        <a className="mr-5">Blogs</a>
-                        <a className="mr-5">About Us</a>
-                    </nav>
+                        <nav className=" flex flex-col text-center gap-3 text-[#002663]">
+                            <Link href='/' className={`mr-5 relative cursor-pointer ${active === 'Home' ? 'text-[#CD3433]' : ''}`} onClick={() => { handleActive('Home'); closeDrawer() }}>Home
+                            </Link>
+                            <Link href='/services' className={`mr-5 cursor-pointer ${active === 'Services' ? 'text-[#CD3433]' : ''}`} onClick={() => { handleActive('Services'); closeDrawer() }}>Services</Link>
+                            <Link href='#' className={`mr-5 cursor-pointer ${active === 'Career' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('Career')}>Career</Link>
+                            <Link href='#' className={`mr-5 cursor-pointer ${active === 'Blogs' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('Blogs')}>Blogs</Link>
+                            <Link href='#' className={`mr-5 cursor-pointer ${active === 'About Us' ? 'text-[#CD3433]' : ''}`} onClick={() => handleActive('About Us')}>About Us</Link>
+                        </nav>
                         <button className="bg-[#002663] rounded-lg border-0 py-1 px-3 focus:outline-nonerounded text-base mt-4 md:mt-0">
                             Get In Touch
                         </button>
@@ -46,7 +61,6 @@ const Navbar = () => {
                         </svg>
                         <span className="sr-only">Close menu</span>
                     </button>
-
                 </div>
             </div>
         </header>

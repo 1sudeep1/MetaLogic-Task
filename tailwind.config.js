@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       animation: {
         dot: 'dot 9s linear infinite',
+        line:'line 2s linear'
       },
       keyframes: {
         dot: {
