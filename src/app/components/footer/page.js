@@ -1,3 +1,4 @@
+import { serviceData } from '@/app/(Pages)/services/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -40,36 +41,11 @@ const Footer = () => {
                     <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                         <h2 className="title-font font-bold tracking-widest text-sm mb-3">Services</h2>
                         <nav className="list-none mb-10 text-[12px]">
-                            <li>
-                                <a>Custom Software Development</a>
+                            {serviceData.map((item)=>(
+                            <li key={item} className='my-2'>
+                                <a>{item.serviceTitle}</a>
                             </li>
-                            <li className="my-2">
-                                <a>Web Development</a>
-                            </li>
-                            <li>
-                                <a>Mobile App Development</a>
-                            </li>
-                            <li className="my-2">
-                                <a>Cloud Computing Services</a>
-                            </li>
-                            <li>
-                                <a>Quality Assurance and Testing</a>
-                            </li>
-                            <li className="my-2">
-                                <a>UI/UX Designing</a>
-                            </li>
-                            <li>
-                                <a>Maintenance and Support</a>
-                            </li>
-                            <li className="my-2">
-                                <a>UI/UX Designing</a>
-                            </li>
-                            <li>
-                                <a>Dev Ops</a>
-                            </li>
-                            <li className='my-2'>
-                                <a>Blockchain Solutions</a>
-                            </li>
+                            ))}
                         </nav>
                     </div>
                     <div className="lg:w-1/4 md:w-1/2 w-full px-4">
